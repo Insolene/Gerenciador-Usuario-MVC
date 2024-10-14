@@ -42,15 +42,23 @@ namespace CreateUser.Controllers
         [HttpPost]
         public IActionResult Create(ContactModel contact)
         {
-            _contactRepository.AddContact(contact);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _contactRepository.AddContact(contact);
+                return RedirectToAction("Index");
+            }
+            return View("Add", contact);
         }
-        
+
         [HttpPost]
         public IActionResult Change(ContactModel contact)
         {
-            _contactRepository.ChangeContact(contact);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _contactRepository.ChangeContact(contact);
+                return RedirectToAction("Index");
+            }
+            return View("Edit", contact);   
         }
     }
 }
