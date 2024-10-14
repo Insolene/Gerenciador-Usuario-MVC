@@ -1,0 +1,14 @@
+﻿@model ContactModel
+@{
+    ViewData["Title"] = "Confirmação para Deletar";
+}
+
+<div class="fw-normal text-center display-6 text-break">
+    <h6>Você está prestes a excluir o usuário [@Model.Name]. Essa ação afetará todos os dados associados. Confirme se deseja prosseguir.</h6>
+</div>
+<p>
+
+</p>
+
+<a class="btn btn-outline-primary d-grid gap-2 col-3 mx-auto" role="button"asp-controller="Contato" asp-action="Delete" asp-route-id="@Model.Id">Deletar</a>
+<a class="btn btn-outline-secondary d-grid gap-2 col-3 mx-auto" role="button" asp-controller="Contato" asp-action="Index">Cancelar</a>
