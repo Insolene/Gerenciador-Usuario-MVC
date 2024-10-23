@@ -1,0 +1,44 @@
+﻿@model UserModel
+@{
+    ViewData["Title"] = "Adicionar Usuário";
+}
+
+<h1 class="display-5 text-center">Adicionar Usuário</h1>
+
+<form asp-controller="User" asp-action="Create" method="post">
+    <div class="mb-3">
+        <label for="Name" class="form-label">Nome</label>
+        <input type="text" asp-for="Name" class="form-control" placeholder="Nome do contato">
+        @Html.ValidationMessageFor(x => x.Name)
+    </div>
+    <div class="mb-3">
+        <label for="Email" class="form-label">E-mail</label>
+        <input type="text" asp-for="Email" class="form-control" placeholder="Digite o E-mail">
+        @Html.ValidationMessageFor(x => x.Email)
+    </div>
+    <div class="mb-3">
+        <label for="Cell" class="form-label">Login</label>
+        <input type="text" asp-for="Login" class="form-control" placeholder="Digite o Login">
+        @Html.ValidationMessageFor(x => x.Login)
+    </div>
+    <div class="mb-3">
+        <label for="Cell" class="form-label">Perfil</label>
+        <select asp-for="Profile" class="form-control">
+            <option value="0">Selecione</option>
+            <option value="1">Administrador</option>
+            <option value="2">Padrão</option>
+        </select>
+
+    </div>
+    <div class="mb-3">
+        <label for="Cell" class="form-label">Senha</label>
+        <input type="password" asp-for="Password" class="form-control" placeholder="Digite a Senha">
+        @Html.ValidationMessageFor(x => x.Password)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Adicionar</button>
+    <a class="btn btn-secondary" asp-controller="User" role="button" asp-action="Index">Voltar</a>
+</form>
+
+
+

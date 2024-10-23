@@ -17,6 +17,7 @@ namespace CreateUser
             builder.Services.AddEntityFrameworkSqlServer().
                 AddDbContext<DataContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase")));
             builder.Services.AddScoped<IContactRepository, ContactRepository>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>(); 
 
             var app = builder.Build();
            
